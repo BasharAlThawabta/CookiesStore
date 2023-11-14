@@ -3,7 +3,7 @@
 - This project has been incredibly beneficial in enhancing my comprehension of the online shopping process, spanning from the order placement to delivery.
 - Additionally, it introduced me to various npm packages, such as webhooks for Discord and session management, which proved to be highly valuable.
 
-###LinkedIn Link : https://www.linkedin.com/in/bashar-al-thawabta/
+### 🔗LinkedIn Link : https://www.linkedin.com/in/bashar-al-thawabta/
 
 # 🟢 FEEL FREE TO USE THIS CODE! 🟢
 
