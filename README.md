@@ -1,9 +1,14 @@
 # CookiesStore
-Cookies Store site, NodeJs, Express, HTML, JS, CSS, BootStrap, AJAX, JQuery, and other useful things includes multible npm usage here! 
+- Cookies Store site, NodeJs, Express, HTML, JS, CSS, BootStrap, AJAX, JQuery, and other useful things includes multible npm usage here! 
+- This project has been incredibly beneficial in enhancing my comprehension of the online shopping process, spanning from the order placement to delivery.
+- Additionally, it introduced me to various npm packages, such as webhooks for Discord and session management, which proved to be highly valuable.
 
+###LinkedIn Link : https://www.linkedin.com/in/bashar-al-thawabta/
 
-### NOTE
-## didnt set any sessions for the admin you can req the admin pages without login.
+# 🟢 FEEL FREE TO USE THIS CODE! 🟢
+
+### 🔴 NOTE 🔴
+## Didn't set any sessions for the admin you can req the admin pages without login.
 
 ### User Pages:
 ## home page 🏠
