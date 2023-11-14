@@ -1,0 +1,34 @@
+.containerContactUs {
+    margin-bottom: 5em;
+    margin-top: 10em;
+    position: relative;
+    animation-name: fadeToCenter2;
+    animation-duration: 3.5s;
+}
+.containerContactUsHead{
+	text-align:center;
+	margin: 0 0 5em 0;
+}
+.containerSweetInput{
+		font-family: 'Barlow', sans-serif;	
+	text-align: left;
+    border-radius: 0%;
+    background-color: #FCAEAE;
+    border: none;
+    height: 50%;
+    width: 30%;
+    margin: 10px 0 10px 10px;
+	font-size:20px;	
+ overflow: hidden;
+ text-align:center;
+}
+.containerSweetButton{
+	border-radius: 10px;
+    padding: 10px;
+    border: none;
+    font-size: 22px;
+    background-color: #FF6666;
+	transition:1.0s ease;
+		font-family: 'Barlow', sans-serif;	
+		    margin: 10px 0 10px 10px;
+}

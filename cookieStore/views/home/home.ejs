@@ -1,0 +1,142 @@
+<%- include('../../include/_header')%>
+
+<body>
+	<%- include('../../include/_discount') %>
+	<div class="container">
+	
+	<div class="containerIntro">
+	
+	<div class="containerIntroText">
+	
+	<p class="containerIntroTextHead">Welcome to our <span class="HighLightWord">Cookies</span> Store</p>
+
+	<br>
+	<div class="containerIntroTextBody">
+	<iconify-icon class="notocookie" icon="noto:cookie" width="400"></iconify-icon>
+	<h3>We have alot of flavors for cookies! <br><br> You can go for <span class="HighLightWord"><a href="/shop">shop</a></span> page and see the categories there!</h3>
+	</div>
+	</div>
+	</div>
+		<div class="backGroundImgJar"></div>
+	<div class="containerMid">
+	
+	<div class="containerIntroText">
+	
+	<p class="containerIntroTextHead">Our <span class="HighLightWord">flavors</span></p>
+	<br>
+	<div class="containerIntroTextBodyMid">
+	
+	<table>
+	<tr>
+	<th><iconify-icon class="notocookie" icon="noto-v1:cookie" width="300"></iconify-icon></th>
+	<th><iconify-icon class="notocookie" icon="fluent-emoji:cookie" width="300"></iconify-icon></th>
+	<th><iconify-icon class="notocookie" icon="fluent-emoji-flat:cookie" width="300"></iconify-icon></th>
+	<th><iconify-icon class="notocookie" icon="emojione-v1:cookie" width="300"></iconify-icon></th>
+	</tr>
+	<tr>
+	<td><h1>Dark <span class="HighLightWordDark">Chocolate</span></h1></td>
+	<td><h1><span class="HighLightWordMilk">Milk</span> Chocolate</h1></td>
+	<td><h1>White <span class="HighLightWordWhite">Chocolate</span></h1></td>
+	<td><h1><span class="HighLightWordRegular">Regular</span> Chocolate</h1></td>
+	</tr>
+	</table>
+	</div>
+	</div>
+	</div>
+	
+	<div class="containerDelivery">
+    
+	<iconify-icon class="notoDeliveryTruck" icon="noto:delivery-truck" width="400"></iconify-icon>
+	
+	<div class="containerIntroText">
+	<br>
+	<br>
+	<br>
+	<br>
+	<p class="containerIntroTextHead">We catch you where ever <span class="HighLightWord">you</span> are in <span class="HighLightWord">Jordan!</span></p>
+	<br>
+	<div class="containerIntroTextBody">
+	
+	
+	<h3>Just choose your cookies and call us</h3>
+	<br>
+	<h1><span class="HighLightPhoneNumber">+962 788888888</span></h1>
+	</div>
+	</div>
+	</div>
+	
+	<div class="containerAds">
+		
+	<div class="containerIntroText">
+	<br><br><br><br><br><br><br>
+	<p class="containerIntroTextHead">Get <span class="HighLightWord">emails</span> now about the latest cookies</p>
+	<br>
+	<div class="containerIntroTextBody">
+	<input id="containerAdsInput" class="containerAdsInput" placeholder="johndoe@email.com"></input>
+    <button id="containerAdsButton" class="containerAdsButton">Send</button>
+	</div>
+	</div>
+	</div>
+	<div class="backGroundImg"></div>
+
+	
+	
+	</div>
+
+</body>
+	<%- include('../../include/_footer')%>		
+<script src="js/js.js"></script>
+
+<script>
+    const containerAdsInput = document.getElementById('containerAdsInput');
+    const containerAdsButton = document.getElementById('containerAdsButton');
+
+    containerAdsButton.addEventListener('click', () => {
+        const inputValue = containerAdsInput.value.trim();
+
+        if (inputValue === '') {
+
+            Swal.fire('Please fill Your email here');
+        } else {
+
+            Swal.fire('Thanks');
+        }
+    });
+</script>
+
+<script>
+	function toggleColor() {
+  var bodyColor = $("body").css("background-color");
+  var navBarColor = $(".navBar").css("background-color");
+  var tableColor = $("table").css("color");
+  
+  if (bodyColor === "rgb(255, 234, 221)") {
+    $("body").css({"background-color": "#212020", "color": "white"});
+    $(".navBar").css({"background-color": "#666262", "color": "white"});
+    $("table").css({"color": "white"});
+    $(".HighLightWordShop").css({"color": "white"});
+    $(".nightDayMode").attr("data-mode", "night");
+  } else {
+    $("body").css({"background-color": "#FFEADD", "color": "black"});
+    $(".navBar").css({"background-color": "#FF6666", "color": "black"});
+    $("table").css({"color": "black"});
+    $(".HighLightWordShop").css({"color": "black"});
+    $(".nightDayMode").attr("data-mode", "day");
+  }
+}
+function initializeColorMode() {
+  var storedMode = localStorage.getItem("colorMode");
+  if (storedMode === "night") {
+    toggleColor();
+  }
+}
+$(".nightDayMode").click(function () {
+  toggleColor();
+  
+  var currentMode = $(".nightDayMode").attr("data-mode");
+  localStorage.setItem("colorMode", currentMode);
+});
+
+
+initializeColorMode();
+		</script>	

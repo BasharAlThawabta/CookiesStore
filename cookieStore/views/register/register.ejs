@@ -1,0 +1,26 @@
+<%- include('../../include/_header')%>
+
+<body>
+	
+	<div class="containerLogin">
+	
+		<div class="loginForm">
+		<form method="post" action="/register">
+		<label class="LoginLabel">Register</label><br><br>
+		<img class="LoginImg" src="../img/register.png"><br><br>
+		<input name="username" class="containerLoginInput" placeholder="Username"></input><br>
+		<input name="email"class="containerLoginInput" placeholder="Email"></input><br>
+		<input name="phonenumber"class="containerLoginInput" placeholder="Phone number"></input><br>
+		<input type="password" name="password" class="containerLoginInput" placeholder="Password"></input><br>
+		<button class="containerLoginButton" type="submit">Register</button><br>
+		<label class="LoginLabel">Already have account? <span class="HighLightWord"><a href="/login">Login</a></span></label>
+		</form>
+		
+		</div>
+		<div class="backGroundImgJarLogin"></div>
+	</div>
+	
+</body>
+	
+<script src="js/js.js"></script>	
+

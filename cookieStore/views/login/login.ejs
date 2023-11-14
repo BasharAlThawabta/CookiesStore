@@ -1,0 +1,64 @@
+<%- include('../../include/_header')%>
+
+<body>
+	
+	<div class="containerLogin">
+	
+		<div class="loginForm">
+		<form method="post" action="/login">
+		
+		<label class="LoginLabel">Login</label><br><br>
+		<img class="LoginImg" src="../img/login.png"><br>
+		<input type="email" name="email" class="containerLoginInput" placeholder="Email"></input><br>
+		<input type="password" name="password" class="containerLoginInput" placeholder="Password"></input><br>
+		<button class="containerLoginButton" type="submit">Login</button><br>
+		<label class="LoginLabel">Don't have account? <span class="HighLightWord"><a href="/register">Register</a></span></label>
+		</form>
+		
+		</div>
+		<div class="backGroundImgJarLogin"></div>
+	</div>
+	 <% if (messageAlert) { %>
+    <script>
+        Swal.fire({
+            icon: 'warning',
+            title: 'Oops...',
+            text: '<%= messageAlert %>',
+            width: '32em',
+            allowOutsideClick: true,
+            showConfirmButton: true,
+            timerProgressBar: true,
+            toast: false,
+            background: '#FFEADD',
+            color: '000000',
+            confirmButtonColor: '#FF6666',
+            showCloseButton: true,
+            timer: 3000,
+
+        });
+    </script>
+<% } %>
+	 <% if (isUser) { %>
+    <script>
+        Swal.fire({
+            icon: 'warning',
+            title: 'Oops...',
+            text: '<%= isUser %>',
+            width: '32em',
+            allowOutsideClick: true,
+            showConfirmButton: true,
+            timerProgressBar: true,
+            toast: false,
+            background: '#FFEADD',
+            color: '000000',
+            confirmButtonColor: '#FF6666',
+            showCloseButton: true,
+            timer: 3000,
+
+        });
+    </script>
+<% } %>
+</body>
+
+<script src="js/js.js"></script>	
+

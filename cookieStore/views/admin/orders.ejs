@@ -1,0 +1,59 @@
+<%- include('../../include/_headerAdmin')%>
+
+<body>
+    <div class="containerShop">
+	 <div class="order-item">
+	 
+        <table>
+            <tr>
+                <th>Order ID</th>
+                <th>Order Name</th>
+                <th>Cart Price</th>
+                <th>Customer email</th>
+                <th>Customer Phone number</th>
+                <th>Order Progress</th>
+                <th>Order Date</th>
+                <th>Prepared</th>
+            </tr>
+			<% for (var i = 0; i < orders.length; i++) { %>
+			<% email = orders[i].email%>
+			
+                <tr>
+				<% if(orders[i].orderComplete === 'Order sent'){%>
+                    <td>#<%= orders[i].id %></td>
+				<%} else{%>
+				<td></td>
+				<%}%>
+                    <td><%= orders[i].orderName %></td>
+                    <% if(orders[i].orderComplete === 'Order sent'){%>
+                    <td><%= orders[i].cartPrice %> JD</td>
+					<%} else{%>
+					<td></td>
+					<%}%>
+					<% if(orders[i].orderComplete === 'Order sent'){%>
+                    <td><%= orders[i].email %></td>
+					<%} else if (orders[i].orderComplete === 'complete'){%>
+					<td><%= orders[i].email %></td>
+					<%} else{%>
+					<td></td>
+					<%}%>
+					<td><%= orders[i].phoneNumber %></td>
+                    <td><%= orders[i].orderComplete %></td>
+                    <td><%= orders[i].orderDate %></td>
+					<% if(orders[i].orderComplete === 'Order sent'){%>
+                    <td>
+                    <a href="/orders/<%= orders[i].id %>">
+                    <button style="background-color:green; color:white;" id="<%= orders[i].id %>" class="containerManageItemsButton" type="submit">Prepared</button>
+                    </a>
+					<%}%>
+                    </td>
+                </tr>
+			
+	  <%}%>
+        </table>
+		</div>
+    </div>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+
+<script src="js/js.js"></script>

@@ -1,0 +1,167 @@
+<%- include('../../include/_header') %>
+
+<body>
+    <div class="containerShop">
+        <% for (var i = 0; i < items.length; i++) { %>
+            <% if (items[i].ItemDelete === '1') { %>
+                <% continue; %>
+            <% } %>
+            <div class="listOfItemsShop">
+                <% if (items[i].ItemQ != '0') { %>
+                    <p class="inStockText">In Stock</p><br>
+                <% } else { %>
+                    <p class="OutOfStockText">Out of Stock</p><br>
+                <% } %>
+                <p class="listOfItemsShopItemNameHeader"><span class="HighLightWordShop"><%= items[i].ItemName %></span></p>
+                <img class="listOfItemsShopItemImg" src="/uploads/<%= items[i].ItemPHOTO %>" alt="Item Photo"><br><br>
+                <button class="containerLoginButton" onclick="AddToCart(this)" data-item='<%- JSON.stringify(items[i]) %>'>See more</button>
+            </div>
+        <% } %>
+    </div>
+
+    <script>
+        const AddToCart = (button) => {
+		var buttonData = button.getAttribute('data-item');
+        var items = JSON.parse(buttonData);
+            Swal.fire({
+                icon: '',
+                title: '',
+                text: '',
+                width: '50em',
+                allowOutsideClick: true,
+                showConfirmButton: true,
+                timerProgressBar: true,
+                toast: false,
+                background: '#FFEADD',
+                color: '000000',
+                confirmButtonColor: '#FF6666',
+                showCloseButton: true,
+                html: `
+                    <div class="listOfItemsShopForm">
+                        <p class="listOfItemsShopItemNameHeader">${items.ItemName}</p>
+                        <a href="#/${items.id}"><img class="listOfItemsShopItemImg" src="/uploads/${items.ItemPHOTO}" alt="Item Photo"></a><br><br>
+                        <p class="listOfItemsShopItemDescForm">${items.ItemDESC}</p><br><br>
+                        <form method="post" action="/order">
+                            <input name="orderName" value="${items.ItemName}" hidden></input>
+                            <p name="ItemPrice1" value="${items.ItemPrice}">Price: ${items.ItemPrice} JD</p><br>
+                            <input name="ItemPrice" value="${items.ItemPrice}" hidden></input>
+                            <input name="ItemPhoto" value="${items.ItemPHOTO}" hidden></input>
+                            ${items.ItemQ !== '0' ? '<p name="ItemQ" value="">Quantity:</p>' +
+                                '<div class="quantity-input">' +
+                                '<button type="button" class="quantity-btn minus plusminusButton">-</button>' +
+                                '<input name="ItemQ" value="1" min="1"></input>' +
+                                '<button type="button" class="quantity-btn plus plusminusButton">+</button>' +
+                                '</div>' +
+                                '<br><br><br><a href="/order"><button class="OrderButton">Order Now</button></a>' :
+                                '<p class="OutOfStockText">Out of Stock</p>'}
+                        </form>
+                    </div>
+                    <style>
+                        input[name="ItemQ"] {
+                            height: 2em;
+                            width: 5em;
+                            border: none;
+							text-align: center;
+                        }
+                        p {
+                            font-size: 2em;
+                            font-family: 'Barlow', sans-serif;
+                        }
+						.plusminusButton{
+    font-weight: bold;
+    color: white;
+    border-radius: 10px;
+    padding: 1px;
+    border: none;
+    font-size: 28px;
+    background-color: #FF6666;
+    transition: 1.0s ease;
+    font-family: 'Barlow', sans-serif;
+    width: 2em;
+    margin: 0 24px 0 20px;
+    height: 2em;
+						}
+                    </style>
+                `,
+            });
+
+            
+            document.querySelectorAll('.quantity-input').forEach(function (quantityInput) {
+                const minusBtn = quantityInput.querySelector('.minus');
+                const plusBtn = quantityInput.querySelector('.plus');
+                const input = quantityInput.querySelector('input');
+
+                minusBtn.addEventListener('click', function () {
+                    if (input.value > 1) {
+                        input.value = parseInt(input.value) - 1;
+                    }
+                });
+
+                plusBtn.addEventListener('click', function () {
+                    input.value = parseInt(input.value) + 1;
+                });
+            });
+        }
+    </script>
+
+    <% if (messageAlert) { %>
+        <script>
+            Swal.fire({
+                icon: 'warning',
+                title: 'Oops...',
+                text: '<%= messageAlert %>',
+                width: '32em',
+                allowOutsideClick: true,
+                showConfirmButton: true,
+                timerProgressBar: true,
+                toast: false,
+                background: '#FFEADD',
+                color: '000000',
+                confirmButtonColor: '#FF6666',
+                showCloseButton: true,
+                timer: 5000,
+            });
+        </script>
+    <% } %>
+
+</body>
+
+<%- include('../../include/_footer') %>
+
+<script src="js/js.js"></script>
+	<script>
+	function toggleColor() {
+  var bodyColor = $("body").css("background-color");
+  var navBarColor = $(".navBar").css("background-color");
+  var tableColor = $("table").css("color");
+  
+  if (bodyColor === "rgb(255, 234, 221)") {
+    $("body").css({"background-color": "#212020", "color": "white"});
+    $(".navBar").css({"background-color": "#666262", "color": "white"});
+    $("table").css({"color": "white"});
+    $(".HighLightWordShop").css({"color": "white"});
+    $(".nightDayMode").attr("data-mode", "night");
+  } else {
+    $("body").css({"background-color": "#FFEADD", "color": "black"});
+    $(".navBar").css({"background-color": "#FF6666", "color": "black"});
+    $("table").css({"color": "black"});
+    $(".HighLightWordShop").css({"color": "black"});
+    $(".nightDayMode").attr("data-mode", "day");
+  }
+}
+function initializeColorMode() {
+  var storedMode = localStorage.getItem("colorMode");
+  if (storedMode === "night") {
+    toggleColor();
+  }
+}
+$(".nightDayMode").click(function () {
+  toggleColor();
+  
+  var currentMode = $(".nightDayMode").attr("data-mode");
+  localStorage.setItem("colorMode", currentMode);
+});
+
+
+initializeColorMode();
+		</script>	

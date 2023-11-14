@@ -1,0 +1,82 @@
+.containerManageItemsInput{
+	font-family: 'Barlow', sans-serif;
+    text-align: left;
+    border-radius: 0%;
+    background-color: #FCAEAE;
+    border: none;
+    max-height:10%;
+    width: 50%;
+    margin: 10px 12em;
+    font-size: 20px;
+	padding: 13px;
+}
+.containerManageItemsButton{
+	border-radius: 10px;
+    padding: 10px;
+    border: none;
+    font-size: 22px;
+    background-color: #FF6666;
+	transition:1.0s ease;
+	font-family: 'Barlow', sans-serif;	
+}
+.ManageItemsForm{
+	text-align:center;
+	display:flex;
+	margin: 0 2em 0 0;
+}
+
+.listOfItems{
+    margin: 0 0 0 10em;
+    display: inline-block;
+    text-align: center;
+    width: auto;
+    height: auto;
+    border-radius: 8px;
+}
+}
+.listOfItems table{
+	margin:10px 0 10px 0;
+    font-family: 'Barlow', sans-serif;
+	text-align:center;
+}
+.listOfItems th{
+	word-wrap: break-word;
+	max-width: 250px;
+	padding: 1em;
+    font-size: 20px;
+	background-color: #FCAEAE;
+	text-align:center;
+}
+.listOfItems td{
+	word-wrap: break-word;
+	max-width: 1000px;
+	padding: 1em;
+    font-size: 17px;
+}
+
+.EditButton {
+    margin: auto;
+    text-align: center;
+    border-radius: 10px;
+    padding: 10px;
+    border: none;
+    font-size: 22px;
+    background-color: #2196f3;
+    transition: 1.0s ease;
+    font-family: 'Barlow', sans-serif;
+    color: white;
+    white-space: nowrap;
+    transition: 0.5s ease;
+}
+.containerManageItemsInputEditForm {
+	font-family: 'Barlow', sans-serif;
+    text-align: left;
+    border-radius: 0%;
+    background-color: #FCAEAE;
+    border: none;
+    /* max-height: 10%; */
+	width: 50%;
+    margin: 13px 1em;
+    font-size: 19px;
+    padding: 19px;
+	}	

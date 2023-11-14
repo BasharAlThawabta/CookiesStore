@@ -1,0 +1,46 @@
+.footer{
+    background-color: #FF6666;
+    width: 100%;
+    font-size: 20px;
+    animation-name: fadeToCenter;
+    animation-duration: 2.5s;
+    height: 16em;
+	margin: 0 0 0 0 ;
+}
+
+.footerContainer th{
+	width: 5%;
+    padding: 1em 5em 2em 5em;
+    font-size: 32px;
+    text-align: center;
+    margin: 0 0 0 0;
+}
+.footerContainer td{
+	font-size:20px;
+	font-family: 'PT Sans', sans-serif;
+}
+.footerContainer table{
+	text-align:center;
+	margin: auto;
+}
+.FooterCookiesImg{
+    max-width: 10%;
+	float: right;
+	transition:0.5s ease;
+	margin:0 0 0 0;
+}
+.FooterCookiesImg:hover{
+	padding:16px;
+	background-color:#FFEADD;
+	border-radius:50%;
+}
+@keyframes fadeToCenter {
+	from {
+		
+		bottom: 6em;
+		background-color:#FFEADD;
+	}
+	to {
+		bottom: 0;
+	}
+}

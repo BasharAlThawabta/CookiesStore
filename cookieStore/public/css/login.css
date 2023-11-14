@@ -1,0 +1,58 @@
+.containerLoginInput{
+		font-family: 'Barlow', sans-serif;	
+	text-align: left;
+    border-radius: 0%;
+    background-color: #FCAEAE;
+    border: none;
+    height: 7%;
+    width: 20%;
+    margin: 10px 1em;
+	font-size:20px;	
+}
+.containerLoginButton{
+	border-radius: 10px;
+    padding: 10px;
+    border: none;
+    font-size: 22px;
+    background-color: #FF6666;
+	transition:1.0s ease;
+		font-family: 'Barlow', sans-serif;	
+}
+.loginForm{
+	
+	text-align:center;
+	
+}
+
+.containerLogin {
+    margin-bottom: 5em;
+    margin-top: 10em;
+    position: relative;
+    animation-name: fadeToCenter2;
+    animation-duration: 3.5s;
+}
+.LoginLabel{
+	font-size:3em;
+	font-family: 'Barlow', sans-serif;	
+}
+
+.backGroundImgJarLogin{
+	float: right;
+    background-image: url(../img/cookiesIcon.png);
+    background-repeat: no-repeat;
+    background-size: 57%;
+    width: 23%;
+    height: 22%;
+    padding: 0px;
+    margin: 0 -5em;
+    opacity: 0.5;
+    transition: 1.5s ease;
+}
+.backGroundImgJarLogin:hover{
+	margin: 0 -20em;
+}
+
+.LoginImg{
+	    width: 10em;
+}
+

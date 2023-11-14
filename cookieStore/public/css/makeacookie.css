@@ -1,0 +1,22 @@
+.containerMakeACookie{
+	
+	margin-bottom: 5em;
+    margin-top: 5em;
+	margin-left: 19em;
+    position: relative;
+    animation-name: fadeToCenter2;
+    animation-duration: 3.5s;
+	justify-content:center;
+}
+.MakeACookieText{
+	text-align:center;
+	font-size:4em;
+	font-family: 'Barlow', sans-serif;
+}
+.cookieLabel{
+	
+	text-align:center;
+	font-size:26px;
+	font-family: 'Barlow', sans-serif;
+	font-weight:bold;
+}

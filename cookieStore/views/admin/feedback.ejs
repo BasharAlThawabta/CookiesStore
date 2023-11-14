@@ -1,0 +1,42 @@
+<%- include('../../include/_headerAdmin')%>
+
+<body>
+	
+	<div class="containerShop">
+	<label class="LoginLabel">List of <span class="HighLightWord">messages:</span></label><br><br>
+												<div class="listOfFeedbacks">
+													<table>
+														<tr>
+															<th>ID</th>
+															<th>NAME</th>
+															<th>EMAIL</th>
+															<th>MESSAGE</th>
+															<th>RATE</th>
+															<th>DELETE</th>
+															
+														</tr>
+														
+														<hr>
+														<% for(var i = 0; i < message.length; i++) { %>
+														
+															<tr>
+																<td><%= message[i].id %><br><hr></td>
+																<td><%= message[i].name %><br><hr></td>
+																<td><%= message[i].email %><br><hr></td>
+																<td><%= message[i].message %><br><hr></td>
+																<td><%= message[i].rate %><br><hr></td>
+																<td>
+																<a href="/feedback/<%= message[i].id %>"><button id="<%= message[i].id %>" class="BasharDelete containerManageItemsButton" type="submit">Delete</button></a>
+																<hr>
+																</td>
+															</tr>
+															
+														<% } %>
+													</table>
+												</div>
+	<div class="backGroundImgJarLogin"></div>
+	</div>
+	
+</body>
+
+<script src="js/js.js"></script>	

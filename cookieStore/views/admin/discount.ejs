@@ -1,0 +1,62 @@
+<%- include('../../include/_headerAdmin')%>
+
+<body id="body">
+
+
+
+    <div  class="containerShop">
+        <div class="ManageItemsForm">
+            <form class="discountForm" method="post" action="/discount" >
+                <label class="LoginLabel">Add new AD discount</label><br><br>
+                <img class="LoginImg" src="../img/Items.png"><br>
+                <input type="text" name="name" class="containerManageItemsInput" placeholder="name"></input><br>
+                <input type="date" name="untilDate" class="containerManageItemsInput" placeholder="untilDate"></input><br>
+                <input type="number" name="discountRate" class="containerManageItemsInput" placeholder="discountRate"></input><br>
+                <input type="text" name="quantity" class="containerManageItemsInput" placeholder="quantity"></input><br>
+                <button class="BasharAdd containerManageItemsButton" type="submit">Add discount</button><br>
+                               </form>
+
+            <div id="listOfItems" class="listOfItems" style="text-align:center;">
+                <label class="LoginLabel">List of <span class="HighLightWord">discounts</span></label><br>
+                <table id="aa">
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Until date</th>
+                        <th>Discount Rate</th>
+                        <th>Quantity</th>
+                        <th>Action</th>
+
+                    </tr>
+                    <hr>
+                    <% for (var i = 0; i < discount.length; i++) { %>
+                       
+                            <tr>
+                                <td><%= discount[i].id %><br><hr></td>
+                                <td><%= discount[i].name %><br><hr></td>
+                                <td><%= discount[i].untilDate %><br><hr></td>
+                                <td><%= discount[i].discountRate %><br><hr></td>
+                                <td><%= discount[i].quantity %><br><hr></td>
+                                <td><button id="<%= discount[i].id %>" class="BasharDeleteDiscount containerManageItemsButton">Delete</button><hr></td>
+								
+                            </tr>
+                    <% } %>
+                </table>
+				
+            </div>
+        </div>
+    </div>
+	
+
+</body>
+
+<style>
+	.demo{
+	color:white;
+	
+	}
+	
+	</style>
+
+<script src="js/js.js"></script>
+

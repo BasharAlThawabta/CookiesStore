@@ -1,0 +1,114 @@
+.containerShop {
+	
+    margin-bottom: 5em;
+    margin-top: 4em;
+    position: relative;
+    animation-name: fadeToCenter2;
+    animation-duration: 3.5s;
+}
+.containerShopEmpty {
+	
+    margin-bottom: 5em;
+    margin-top: 4em;
+    margin-top: 3em;
+    animation-name: fadeToCenter2;
+    display: flex;
+    animation-duration: 3.5s;
+    justify-content: center;
+}
+}
+.order-item {
+    font-family: 'PT Sans', sans-serif;
+    background-color: #FF6666;
+    display: flex;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.Emptycart{
+	color: white;
+    font-size: 2em;
+    width: 21em;
+    height: 2em;
+    margin: 5em 0 3em;
+    text-align: center;
+    background-color: #FF6666;
+	font-family: 'PT Sans', sans-serif;
+}
+.backGroundImgEmptyCart{
+    background-image: url(../img/empty-cart.png);
+    background-repeat: no-repeat;
+    background-size: 55%;
+    width: 69%;
+    height: 65%;
+    padding: 10px;
+    margin: 0 7em 20em;
+    opacity: 0.5;
+    transition: 1.5s ease;
+}
+.containerLoginCartButton {
+    border-radius: 10px;
+    padding: 12px;
+    border: none;
+    font-size: 29px;
+    background-color: #FF6666;
+    transition: 1.0s ease;
+    font-family: 'Barlow', sans-serif;
+}
+
+.order-item th {
+	background-color: #f2f2f2;
+	border: 1px solid #dddddd;
+	text-align: left;
+	padding: 8px;
+	font-size:2em;
+	    font-family: 'Barlow', sans-serif;
+}
+
+
+.order-item td {
+
+    width: 15em;
+    font-size: 21px;
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 11px;
+	font-family: 'Barlow', sans-serif;
+    font-weight: bold;
+}
+
+.order-item .BasharDelete {
+	background-color: #ff6666;
+	color: white;
+	border: none;
+	padding: 5px 10px;
+	cursor: pointer;
+	font-family: 'Barlow', sans-serif;
+    }	
+.MyCartFont{
+	font-size:4em;
+	font-family: 'Barlow', sans-serif;
+	font-weight:bolder;
+}
+.orderNowButton{
+	font-weight: bold;
+    border: none;
+    background-color: green;
+    color: white;
+    padding: 9px;
+    border-radius: 3%;
+	transition: 0.5s ease;
+}
+.orderNowButton:hover{
+    background-color: #00a300;
+    color: white;
+    padding: 12px;
+    border-radius: 10%;
+}
+.MyCartBtn{
+	    border-radius: 10px;
+    border: none;
+    font-size: 35px;
+    background-color: #FF6666;
+    transition: 1.0s ease;
+    font-family: 'Barlow', sans-serif;
+}

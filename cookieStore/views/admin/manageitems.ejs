@@ -1,0 +1,106 @@
+<%- include('../../include/_headerAdmin')%>
+
+<body>
+    <div class="containerShop">
+        <div class="ManageItemsForm">
+            <form method="post" action="/manageitems" enctype="multipart/form-data">
+                <label class="LoginLabel">Add New Item</label><br><br>
+                <img class="LoginImg" src="../img/Items.png"><br>
+                <input type="text" name="ItemName" class="containerManageItemsInput" placeholder="ItemName"></input><br>
+                <input type="text" name="ItemPrice" class="containerManageItemsInput" placeholder="Item Price"></input><br>
+                <input type="number" name="ItemQ" class="containerManageItemsInput" placeholder="ItemQ"></input><br>
+                <input type="text" name="ItemDESC" class="containerManageItemsInput" placeholder="ItemDESC"></input><br>
+                <input type="file" name="ItemPHOTO" class="containerManageItemsInput" placeholder="ItemPHOTO"></input><br>
+                <button class="containerManageItemsButton" type="submit">Add item</button><br>
+                               </form>
+
+            <div class="listOfItems">
+                <label class="LoginLabel">List of <span class="HighLightWord">items:</span></label>
+                <table>
+                    <tr>
+                        <th>ID</th>
+                        <th>Item Name</th>
+                        <th>Item Price</th>
+                        <th>Item Q</th>
+                        <th>Item DESC</th>
+                        <th>Item PHOTO</th>
+                        <th>Stock</th>
+                        <th>Action</th>
+                        <th></th>
+                    </tr>
+                    <hr>
+                    <% for (var i = 0; i < items.length; i++) { %>
+                        <% if (items[i].ItemDelete === '1') { %>
+                        <% } else { %>
+                            <tr>
+                                <td><%= items[i].id %><br><hr></td>
+                                <td><%= items[i].ItemName %><br><hr></td>
+                                <td><%= items[i].ItemPrice %> JD<br><hr></td>
+                                <td><%= items[i].ItemQ %><br><hr></td>
+                                <td><%= items[i].ItemDESC %><br><hr></td>
+                                <td>
+                                    <img src="/uploads/<%= items[i].ItemPHOTO %>" alt="Item Photo" width="150">
+                                </td>
+                                <td>
+                                    <% if (items[i].ItemQ != '0') { %>
+                                        <p class="inStockText">In Stock</p><br>
+                                    <% } else { %>
+                                        <p class="OutOfStockText">Out of Stock</p><br>
+                                    <% } %>
+                                </td>
+                                <td>
+                                    <button data-item='<%- JSON.stringify(items[i]) %>' class="EditButton">Edit</button><hr>
+                                </td>
+                                <td>
+                                    <button id="<%= items[i].id %>" class="BasharDelete containerManageItemsButton" type="button">Delete</button>
+                                    <hr>
+                                </td>
+                            </tr>
+                        <% } %>
+                    <% } %>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="js/js.js"></script>
+<script>
+    $(document).ready(function () {
+                                                                            $(".BasharDelete").click(function () {
+                                                                            var $this = $(this);
+                                                                            var itemid = $this.attr('id');
+                                                                            $.post("/manageitems/" + itemid, function (data, status) {
+                                                                            $this.closest('tr').remove();
+                                                                            });
+                                                                            });
+                                                                            });
+
+
+    document.addEventListener('click', function(event) {
+        if (event.target.classList.contains('EditButton')) {
+            const item = JSON.parse(event.target.getAttribute('data-item'));
+            Swal.fire({
+                html: `
+                    <form method="post" action="/edit_items/${item.id}" enctype="multipart/form-data">
+                        <img src="/uploads/${item.ItemPHOTO}" alt="Item Photo" width="400"><br>
+                        <input type="text"   name="ItemName"  class="containerManageItemsInputEditForm" placeholder="ItemName"  value="${item.ItemName}"><br>
+                        <input type="number" name="ItemPrice" class="containerManageItemsInputEditForm" placeholder="ItemPrice" value="${item.ItemPrice}"><br>
+                        <input type="number" name="ItemQ"     class="containerManageItemsInputEditForm" placeholder="ItemQ"     value="${item.ItemQ}"><br>
+                        <input type="text"   name="ItemDESC"  class="containerManageItemsInputEditForm" placeholder="ItemDESC"  value="${item.ItemDESC}"><br>
+                        <br>
+                        <button class="containerManageItemsButton" type="submit">Update item</button><br>
+
+                    </form>
+                `,
+                showConfirmButton: false,
+                color: '000000',
+                confirmButtonColor: '#FF6666',
+                background: '#FFEADD',
+                width: '50em',
+            });
+        } else if (event.target.classList.contains('BasharDelete')) {
+            // Handle delete button click here...
+        }
+    });
+</script>

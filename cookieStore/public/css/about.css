@@ -1,0 +1,19 @@
+.containerAbout {
+    margin-bottom: 5em;
+    margin-top: 4em;
+    position: relative;
+    animation-name: fadeToCenter2;
+    animation-duration: 3.5s;
+}
+.containerAboutArticleHead{
+    text-align: center;
+    font-family: 'Barlow', sans-serif;
+    font-size: 5em;
+}
+.containerAboutArticleBody{
+	text-align: center;
+    margin: 0 2em 0 2em;
+    font-family: 'Barlow', sans-serif;
+    font-size: 2em;
+	background-color: #ffdfcc;
+}

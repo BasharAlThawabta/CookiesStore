@@ -1,0 +1,186 @@
+<%- include('../../include/_header') %>
+
+<body>
+    <div class="containerShopEmpty">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="orders-container">
+            <% if (messageAlert) { %>
+                <p class="Emptycart">Please log in to view your cart or to add items</p>
+                <a style="color:white; text-decoration:none;" href="/login"><button class="containerLoginCartButton">Login</button></a>
+                <div class="backGroundImgEmptyCart"></div>
+            <% } %>
+
+            <div class="order-item">
+    <% let headerDisplayed = false; %>
+    <% let totalPrice = 0; %>
+    <% let orderNames = []; %>
+    <% let orderQ = []; %>
+    <% let OrderPrice = []; %>
+    <% let quantity = ' quantity: ' %>
+    <% let comma = ', ' %>
+    <% let p = '(' %>
+    <% let b = ') ' %>
+	<br><button class="MyCartBtn" onclick="MyCart()"><iconify-icon icon="mdi:order-bool-ascending" width="50"></iconify-icon> My Orders </button>
+
+    <% let hasIncompleteOrders = false; %>
+    <% for (var i = 0; i < orders.length; i++) { %>
+        <% if (orders[i].orderDelete === '1' || orders[i].orderComplete === 'completed') { %>
+            <% continue; %>
+        <% } else if (!headerDisplayed) { %>
+            <table>
+                <p class="MyCartFont">My Cart</p>
+                <hr>
+                <tr>
+                    <th>Order Name</th>
+                    <th>Item Photo</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Delete</th>
+                </tr>
+                <% headerDisplayed = true; %>
+            <% } %>
+            <tr>
+                <td><%= orders[i].orderName %></td>
+                <td><img width="200" src="/uploads/<%= orders[i].orderPhoto %>"></td>
+                <td><%= orders[i].OrderPrice * orders[i].orderQ %> JD</td>
+                <td><%= orders[i].orderQ %></td>
+                <td>
+                    <button id="<%= orders[i].id %>" class="BasharDelete containerManageItemsButton" type="submit">Delete Item</button>
+                </td>
+                <% totalPrice = totalPrice + (orders[i].OrderPrice * orders[i].orderQ) %>
+                <% orderNames.push(p,orders[i].orderName,quantity,orders[i].orderQ,b,comma); %>
+                <% orderQ.push(orders[i].orderQ); %>
+                <% OrderPrice.push(orders[i].OrderPrice); %>
+            </tr>
+            <% if (orders[i].orderComplete !== 'complete') { %>
+                <% hasIncompleteOrders = true; %>
+            <% } %>
+        <% } %>
+
+        <% if (hasIncompleteOrders) { %>
+            <tr>
+                <th>Total Price</th>
+            </tr>
+            <form action="/complete" method="post">
+                <tr>
+                    <td><%= totalPrice.toFixed(2) %> JD</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input name="orderName" value="<%= orderNames.join('') %>" hidden>
+                        <input name="orderQ" value="<%= orderQ.join(', ') %>" hidden>
+                        <input name="orderPrice" value="<%= OrderPrice.join(', ') %>" hidden>
+                        <input name="totalPrice" value="<%= totalPrice.toFixed(2) %>" hidden>
+                        <button class="orderNowButton" type="submit">Order now</button>
+                    </td>
+                </tr>
+            </form>
+        <% } %>
+    </table>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</div>
+        </div>
+    </div>
+	
+
+<script>
+    const MyCart = () => {
+        Swal.fire({
+            icon: '',
+            title: 'My orders',
+            text: '',
+            width: '100em',
+            allowOutsideClick: true,
+            showConfirmButton: true,
+            timerProgressBar: true,
+            toast: false,
+            background: '#FFEADD',
+            color: '000000',
+            confirmButtonColor: '#FF6666',
+            showCloseButton: true,
+            html: ` <div class="order-item">
+            <table>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Order Name</th>
+                    <th>Cart Price</th>
+                    <th>Customer email</th>
+					<th>Customer Phone number</th>
+                    <th>Order Progress</th>
+                    <th>Order Date</th>
+                    <th>Delivery Status</th>
+                    
+                </tr>
+                <% var totalPriceSum = 0; %>
+                <% var id; %>
+                <% for (var i = 0; i < orders.length; i++) { %>
+                    
+                    <tr>
+                        <% if (orders[i].orderComplete === 'Order sent' || orders[i].orderComplete === 'Order Completed') { %>
+                            <td>#<%= orders[i].id %></td>
+                       
+                        <td><%= orders[i].orderName %></td>
+                        
+                            <td><%= orders[i].cartPrice %> JD</td>
+                            <% if(orders[i].orderDelivery === 'Delivery Arrived'){%>
+                                <% totalPriceSum += orders[i].cartPrice; %>
+                            <%}%>
+                      
+                        <td><%= orders[i].email %></td>  
+						<td><%= orders[i].phoneNumber %></td>
+                        <td><%= orders[i].orderComplete %></td>
+                        <td><%= orders[i].orderDate %></td>
+                        <td><%= orders[i].orderDelivery %></td>
+                       
+                        <% id = orders[i].id; %> <!-- Assign the value of id here -->
+                    </tr>
+					<%}%>
+                <%}%>
+                
+            </table>
+        </div>`
+        });
+    }
+</script>
+</body>
+
+<script src="js/js.js"></script>
+<% if (messageSuccess) { %>
+    <script>
+       Swal.fire({
+            icon: 'success',
+            title: '',
+            text: '<%=messageSuccess%>',
+            width: '50em',
+            allowOutsideClick: true,
+            showConfirmButton: true,
+            timerProgressBar: true,
+            toast: false,
+            background: '#FFEADD',
+            color: '000000',
+            confirmButtonColor: '#FF6666',
+            showCloseButton: true
+			});
+    </script>
+<% } %>
+<script>
+    $(document).ready(function () {
+        $(".BasharDelete").click(function () {
+            console.log("Button clicked"); // Check if this log appears in the console
+            var $this = $(this);
+            var orderid = $this.attr('id');
+            $.post("/cart/" + orderid, function (data, status) {
+                $this.closest('tr').remove();
+            });
+        });
+    });
+</script>
+
+<style>
+    <!-- Your CSS styles here -->
+</style>

@@ -1,0 +1,40 @@
+body{
+	background-color:#FFEADD;
+    max-width: 100%;
+    overflow-x: hidden;
+	animation-name: fadeToCenter;
+	animation-duration: 2.5s ;
+
+}
+body::-webkit-scrollbar {
+    display: none;
+}
+
+*::selection {
+  background-color: #FCAEAE;
+}
+
+body h1{
+	background-color:#FFEADD;
+    max-width: 100%;
+    overflow-x: hidden;
+	overflow-y: hidden;
+	animation-name: fadeToCenter;
+	animation-duration: 2.5s ;
+}
+.backGroundImg{
+	
+
+	
+}
+@keyframes fadeToCenter {
+  from {
+    top: 6em;
+	background-color:#FFEADD;
+  }
+  to {
+    top: 0;
+  }
+}
+
+

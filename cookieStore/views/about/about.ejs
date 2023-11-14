@@ -1,0 +1,62 @@
+<%- include('../../include/_header')%>
+
+<body>
+	
+	<div class="containerAbout">
+	<div class="containerAboutArticle">
+	<div class="containerAboutArticleHead">
+	<p><span class="HighLightWord">about</span> us</p>
+	<br>
+	</div>
+	<div class="containerAboutArticleBody">
+	<p>In the heart of <span class="HighLightWord">Jordan</span>, where the rich tapestry of culture and tradition weaves together, resides a passionate individual with a unique talent—crafting the sweetest of <span class="HighLightWord">cookies</span> that captivate hearts and palates alike.<br> This Jordanian culinary artisan is on a mission to share the essence of their homeland through every bite of their scrumptious creations.</p>
+	<br>
+	<p>Born and raised in the vibrant city of <span class="HighLightWord">Amman</span>, our cookie connoisseur's journey began in their grandmother's cozy kitchen.<br> As a child, they would watch in awe as their grandmother whipped up batches of cookies, infusing them with <span class="HighLightWord">love</span> and cherished family recipes.<br> These early <span class="HighLightWord">memories</span> ignited a lifelong passion for baking, and soon, the aspiring baker began to experiment with various ingredients, techniques, and flavors.<br>
+
+Years of dedication and countless hours in the kitchen have transformed this individual into a master of sweet creations.<br> Today, they are celebrated for their ability to blend tradition and innovation, resulting in cookies that pay homage to Jordan's culinary heritage while introducing exciting <span class="HighLightWord">new flavors</span> to the world.</p>
+	</div>
+	</div>
+		<div class="backGroundImgJarLogin"></div>
+	</div>
+	
+</body>
+	
+<script src="js/js.js"></script>	
+
+<script>
+	function toggleColor() {
+  var bodyColor = $("body").css("background-color");
+  var navBarColor = $(".navBar").css("background-color");
+  var tableColor = $("table").css("color");
+  
+  if (bodyColor === "rgb(255, 234, 221)") {
+    $("body").css({"background-color": "#212020", "color": "white"});
+    $(".navBar").css({"background-color": "#666262", "color": "white"});
+    $("table").css({"color": "white"});
+    $(".HighLightWordShop").css({"color": "white"});
+    $(".containerAboutArticleBody").css({"color": "black"});
+    $(".nightDayMode").attr("data-mode", "night");
+  } else {
+    $("body").css({"background-color": "#FFEADD"});
+    $(".navBar").css({"background-color": "#FF6666", "color": "black"});
+    $("table").css({"color": "black"});
+    $(".HighLightWordShop").css({"color": "black"});
+    $(".nightDayMode").attr("data-mode", "day");
+  }
+}
+function initializeColorMode() {
+  var storedMode = localStorage.getItem("colorMode");
+  if (storedMode === "night") {
+    toggleColor();
+  }
+}
+$(".nightDayMode").click(function () {
+  toggleColor();
+  
+  var currentMode = $(".nightDayMode").attr("data-mode");
+  localStorage.setItem("colorMode", currentMode);
+});
+
+
+initializeColorMode();
+		</script>	

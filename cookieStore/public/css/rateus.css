@@ -1,0 +1,70 @@
+.containerRateUs {
+    margin-bottom: 5em;
+    margin-top: 10em;
+    position: relative;
+    animation-name: fadeToCenter2;
+    animation-duration: 3.5s;
+}
+.containerRateUsUsHead{
+	text-align: center;
+    margin: 0 0 1em 0;
+}
+.rate {
+	
+    height: 46px;
+    padding: 0 10px;
+}
+.rate:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+}
+.rate:not(:checked) > label {
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:3em;
+    color:#ccc;
+}
+.rate:not(:checked) > label:before {
+    content: '★ ';
+}
+.rate > input:checked ~ label {
+    color: #ffc700;    
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+    color: #deb217;  
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+    color: #c59b08;
+}
+.listOfFeedbacks{
+    display:inline-block;
+	text-align:center;
+    width: auto;
+    height: auto;
+	border-radius: 8px
+}
+.listOfFeedbacks table{
+	margin:10px 0 10px 0;
+    font-family: 'Barlow', sans-serif;
+	text-align:center;
+}
+.listOfFeedbacks th{
+	word-wrap: break-word;
+	max-width: 250px;
+	padding: 1em;
+    font-size: 20px;
+	background-color: #FCAEAE;
+}
+.listOfFeedbacks td{
+	word-wrap: break-word;
+	max-width: 1000px;
+	padding: 1em;
+    font-size: 2em;
+}

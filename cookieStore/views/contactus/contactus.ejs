@@ -1,0 +1,43 @@
+<%- include('../../include/_header')%>
+
+<body>
+    <div class="containerContactUs">
+        <div class="containerContactUsHead">
+            <label class="LoginLabel">Do you have <span class="HighLightWord">problem</span> or any <span class="HighLightWord">suggestions?</span><br><br> <span class="HighLightWord">Please</span> let us know!</label>
+        </div>
+        <div class="loginForm">
+            <form method="post" action="/contactus">
+                <input name="name" type="text" class="containerLoginInput" placeholder="My name"></input><br>
+                <input name="email" type="email" class="containerLoginInput" placeholder="Email"></input><br>
+                <textarea id="containerLoginInputTextArea" name="message" type="text" class="containerLoginInput" placeholder="My message"></textarea><br>
+                <button id="containerButton" class="containerLoginButton" type="submit">Send</button><br>
+            </form>
+   <% if (messageAlert) { %>
+    <script>
+        Swal.fire({
+            icon: 'warning',
+            title: 'Oops...',
+            text: '<%= messageAlert %>',
+            width: '32em',
+            allowOutsideClick: true,
+            showConfirmButton: true,
+            timerProgressBar: true,
+            toast: false,
+            background: '#FFEADD',
+            color: '000000',
+            confirmButtonColor: '#FF6666',
+            showCloseButton: true,
+            timer: 3000,
+
+        });
+    </script>
+<% } %>
+
+
+        </div>
+
+    </div>
+</body>
+
+<script src="js/js.js"></script>
+<%- include('../../include/_footer')%>

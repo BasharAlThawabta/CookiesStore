@@ -1,0 +1,61 @@
+<%- include('../../include/_headerAdmin')%>
+
+<body>
+    <div class="containerShop">
+        <div class="order-item">
+            <table>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Order Name</th>
+                    <th>Cart Price</th>
+                    <th>Customer email</th>
+					<th>Customer Phone number</th>
+                    <th>Order Progress</th>
+                    <th>Order Date</th>
+                    <th>Delivery Status</th>
+                </tr>
+                <% var totalPriceSum = 0; %>
+                <% var id; %>
+                <% for (var i = 0; i < orders.length; i++) { %>
+                    <% email = orders[i].email %>
+                    <tr>
+                        <% if (orders[i].orderComplete === 'Order Completed') { %>
+                            <td>#<%= orders[i].id %></td>
+                        <%} else { %>
+                            <td></td>
+                        <%} %>
+                        <td><%= orders[i].orderName %></td>
+                        <% if (orders[i].orderComplete === 'Order Completed') { %>
+                            <td><%= orders[i].cartPrice %> JD</td>
+                            <% if(orders[i].orderDelivery === 'Delivery Arrived'){%>
+                                <% totalPriceSum += orders[i].cartPrice; %>
+                            <%}%>
+                        <%} else { %>
+                            <td></td>
+                        <%} %>
+                        <% if (orders[i].orderComplete === 'Order Completed' || orders[i].orderComplete === 'complete') { %>
+                            <td><%= orders[i].email %></td>
+                        <%} else { %>
+                            <td></td>
+                        <%} %>
+						<td><%= orders[i].phoneNumber %></td>
+                        <td><%= orders[i].orderComplete %></td>
+                        <td><%= orders[i].orderDate %></td>
+                        <td><%= orders[i].orderDelivery %></td>
+                      
+                        <% id = orders[i].id; %> <!-- Assign the value of id here -->
+                    </tr>
+                <%}%>
+                <tr>
+                    <td style="font-size: 28px;" colspan="2">Total Revenue: <%= totalPriceSum %> JD </td>
+				<td><button style="font-size:24px; font-weight:bolder;" class="btn btn-success" disabled>Revenue Submited</button></td>
+                    
+                    
+                </tr>
+            </table>
+        </div>
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+
+<script src="js/js.js"></script>

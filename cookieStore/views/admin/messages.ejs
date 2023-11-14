@@ -1,0 +1,52 @@
+<%- include('../../include/_headerAdmin')%>
+
+<body>
+	
+	<div class="containerShop">
+	<label class="LoginLabel">List of <span class="HighLightWord">messages:</span></label><br><br>
+												<div class="listOfFeedbacks">
+													<table>
+														<tr>
+															<th>ID</th>
+															<th>NAME</th>
+															<th>EMAIL</th>
+															<th>MESSAGE</th>
+															<th>DELETE</th>
+															
+														</tr>
+														
+														<hr>
+														<% for(var i = 0; i < message.length; i++) { %>
+														<% if(message[i].MessageDelete === '1'){%>
+														<%} else{%>
+															<tr>
+																<td><%= message[i].id %><br><hr></td>
+																<td><%= message[i].name %><br><hr></td>
+																<td><%= message[i].email %><br><hr></td>
+																<td><%= message[i].message %><br><hr></td>
+																<td>
+																<button id="<%= message[i].id %>" class="BasharDelete containerManageItemsButton" type="submit">Delete</button>
+																<hr>
+																</td>
+															</tr>
+															<%}%>
+														<% } %>
+													</table>
+												</div>
+	<div class="backGroundImgJarLogin"></div>
+	</div>
+	
+</body>
+
+<script src="js/js.js"></script>	
+<script>
+	$(document).ready(function () {
+    $(".BasharDelete").click(function () {
+	var $this = $(this);
+        var messageid = $this.attr('id');
+        $.post("/messages/" + messageid, function (data, status) {
+           $this.closest('tr').remove();
+        });
+    });
+});
+</script>

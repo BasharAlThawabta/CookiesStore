@@ -1,0 +1,222 @@
+.container {
+    margin-bottom: 5em;
+    margin-top: 5em;
+    position: relative;
+    animation-name: fadeToCenter2;
+    animation-duration: 3.5s;
+}
+.containerIntro{
+	display:flex;
+	justify-content: space-around;
+}
+.containerIntroText{
+	font-family: 'Barlow', sans-serif;
+	
+}
+.containerIntroTextHead{
+	text-align:center;
+	font-size:4em;
+	transition: 0.5s ease;
+	padding:10px;
+}
+.containerIntroTextHead:hover{
+
+font-size:70px;
+
+}
+.containerIntroTextBody{
+	
+	text-align:center;
+	
+}
+.containerIntroTextBodySpan a{
+	color :#FF8989;
+	text-decoration:none;
+	transition: 0.5s ease;
+	border-radius: 5px;
+}
+.containerIntroTextBodySpan a:hover{
+	background-color:#FCAEAE;
+	color :#FFEADD;
+	
+}
+.containerMid{
+	margin-top: 1em;
+	display:flex;
+	justify-content: space-around;
+	flex-direction: column-reverse;
+}
+.containerIntroTextBodyMid{
+	display:felx;
+	text-align:center;
+}
+.containerIntroTextBodyMid table{
+	text-align:center;
+	display: felx;
+	
+}
+.containerIntroTextBodyMid th{
+	margin-left:1em;
+	text-align:center;
+	display: felx;
+}
+.containerIntroTextBodyMid td{
+	
+	padding:30px;
+	
+}
+
+.containerDelivery{
+	
+	
+	margin-top: 12em;
+	display:flex;
+	justify-content: space-around;
+	flex-direction: column-reverse;
+	
+}
+.backGroundImg{
+	background-image: url(../img/backGroundImg.png);
+	background-repeat: no-repeat;
+    width: 54%;
+    height: 54%;
+	padding:10px;
+	margin: 0 -32em;
+	opacity: 0.5;
+	transition:1.5s ease;
+	
+}
+
+.backGroundImg:hover{
+		margin: 0 -20em;
+}
+.backGroundImgRight{
+	background-image: url(../img/backGroundImg.png);
+	background-repeat: no-repeat;
+    width: 54%;
+    height: 54%;
+	padding:10px;
+	margin: 0 32em;
+	opacity: 0.5;
+	
+}
+
+.containerAds{
+	display:flex;
+	justify-content: space-around;
+}
+
+
+
+
+.containerAdsInput{
+	text-align: center;
+    border-radius: 0%;
+    background-color: #FCAEAE;
+    border: none;
+    height: 17%;
+    width: 30%;
+    margin: 0px 1em;
+	font-size:20px;
+	
+}
+.containerAdsButton{
+	border-radius: 10px;
+    padding: 10px;
+    border: none;
+    font-size: 22px;
+    background-color: #FF6666;
+	transition:1.0s ease;
+}
+.containerAdsButton:hover{
+	font-size: 22px;
+    padding: 7px;
+}
+.notocookie{
+	border-radius:50%;
+	transition:0.5s ease;
+}
+.notocookie:hover{
+padding:12px;
+background-color:#FF8989;
+border-radius:50%;
+}
+.notoDeliveryTruck{
+	transition:4.5s ease;
+}
+.notoDeliveryTruck:hover{
+		margin: 0 -100em;
+}
+.HighLightWord{
+	color:white;
+	background-color:#FF6666;
+	  text-transform: uppercase;
+}.HighLightWord a{
+	color:white;
+text-decoration:none;
+}
+.HighLightPhoneNumber{
+	color:white;
+	background-color:#FF6666;
+	  text-transform: uppercase;
+}
+.HighLightPhoneNumber a{
+	
+	color:white;
+	background-color:#FF6666;
+	  text-transform: uppercase;
+}
+.HighLightWordDark{
+	color:white;
+	background-color:black;
+	  text-transform: uppercase;
+}.HighLightWordMilk{
+	color:black;
+	background-color:#f3f3f3;
+	  text-transform: uppercase;
+}.HighLightWordWhite{
+	color:black;
+	background-color:white;
+	  text-transform: uppercase;
+}.HighLightWordRegular{
+	color:white;
+	background-color:#FF6666;
+	  text-transform: uppercase;
+}
+
+.backGroundImgJar{
+background-image: url(../img/cookiesIcon.png);
+    background-repeat: no-repeat;
+    background-size: 55%;
+    width: 33%;
+    height: 22%;
+    padding: 10px;
+    margin: 0 -5em;
+    opacity: 0.5;
+    transition: 1.5s ease;
+}
+.backGroundImgJar:hover{
+		margin: 0 -20em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+@keyframes fadeToCenter2 {
+    from {
+        /* Initial state: set the element at the bottom */
+        bottom: -6em;
+	}
+    to {
+		
+        bottom: 0;
+	}
+}

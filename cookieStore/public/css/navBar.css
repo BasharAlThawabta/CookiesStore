@@ -1,0 +1,56 @@
+.navBar{
+	margin: auto;
+	text-align: center;
+	background-color:#FF6666;
+	width: 100%;
+	font-size:20px;
+	font-family: 'PT Sans', sans-serif;
+	animation-name: fadeToCenter;
+	animation-duration: 2.5s ;
+}
+
+
+.navBar a{
+	text-decoration:none;
+	box-sizing:border-box;
+	color:white;
+	transition: 0.5s ease;
+	padding: 5px 5px 5px 5px;
+	
+	
+}
+.navBar a:hover{
+	background-color:#FF8989;
+	border-radius:5%;
+	
+}
+
+.navBar ul li{
+	
+	display: inline;
+	margin: 0 20px;
+}
+.navBar ul {
+    margin-top: 0;
+}
+.navBar dl, ol, ul {
+	margin-bottom: 0rem;
+}
+
+.navBar img{
+    width: 3em;
+    height: 3em;
+	margin: 0 10px 0 0;
+}
+
+
+@keyframes fadeToCenter {
+	from {
+		
+		left: 6em;
+		background-color:#FFEADD;
+	}
+	to {
+		left: 0;
+	}
+}

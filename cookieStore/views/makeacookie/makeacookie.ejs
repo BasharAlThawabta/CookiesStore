@@ -1,0 +1,98 @@
+<%- include('../../include/_header')%>
+
+<body>
+	<h1 style="position: absolute; margin: 10em; font-size:3em; font-weight:100;">Coming soon...</h1>
+  <div class="containerMakeACookie" style="filter:blur(1em); pointer-events: none;">
+    <% if (messageAlert) { %>
+      <!-- Show a warning message using Swal.fire -->
+      <script>
+        Swal.fire({
+          icon: 'warning',
+          title: 'Oops...',
+          text: '<%= messageAlert %>',
+          width: '32em',
+          allowOutsideClick: true,
+          showConfirmButton: true,
+          timerProgressBar: true,
+          toast: false,
+          background: '#FFEADD',
+          color: '000000',
+          confirmButtonColor: '#FF6666',
+          showCloseButton: true,
+          timer: 3000,
+        });
+      </script>
+	  
+	  <iconify-icon icon="emojione:cookie" width="400" ></iconify-icon>
+	  <iconify-icon icon="meteocons:wind-fill" width="500"></iconify-icon>
+	  <iconify-icon icon="twemoji:man-cook" width="400"></iconify-icon>
+	  <p class="MakeACookieText">You can make your own cookie now!<br>Just Login!<br><a style="color:white; text-decoration:none;" href="/login"><button class="containerLoginCartButton">Login</button></a></p>
+	  
+    <% } else if (messageSuccess) { %>
+      <script>
+        Swal.fire({
+          icon: 'success',
+          title: 'Success',
+          text: '<%= messageSuccess %>',
+          width: '32em',
+          allowOutsideClick: true,
+          showConfirmButton: true,
+          timerProgressBar: true,
+          toast: false,
+          background: '#FFEADD',
+          color: '000000',
+          confirmButtonColor: '#FF6666',
+          showCloseButton: true,
+          timer: 3000,
+        });
+      </script>
+   
+
+    <div class="loginForm">
+      <form method="post" action="/login">
+	  
+        <label class="LoginLabel">Give us Your ingredients!</label><br><br>
+        
+        <input  name="cookiename" class="containerLoginInput" placeholder="Cookie name"></input><br>
+		
+		<label class="cookieLabel">Main Component:</label><br>
+		
+        <select class="containerLoginInput" name="cookiecomponent">
+		<option value="SelectType">Select Component</option>	
+		<option value="CHOCOLATE">CHOCOLATE</option>	
+		<option value="WHITE">WHITE</option>	
+		<option value="REGULAR">REGULAR</option>
+		<option value="OATMEAL">OATMEAL</option>
+		<option value="AVOCADO">AVOCADO</option>
+		<option value="Gingersnaps">Gingersnaps</option>
+		<option value="PeanutButter">Peanut Butter</option>
+		<option value="Molasses">Molasses</option>
+		</select><br>
+		
+		<label class="cookieLabel">Size:</label><br>
+		
+        <select class="containerLoginInput" name="cookiesize">
+		<option value="SelectSize">Select Size</option>	
+		<option value="Small">Small</option>	
+		<option value="Medium">Medium</option>	
+		<option value="Large">Large</option>
+		</select><br>
+		<label class="cookieLabel">Extras:</label><br><br>
+		<input type="checkbox" class="" name="ExtraChocolate" value="ExtraChocolate">
+		<label class="cookieLabel">Chocolate</label><br>
+		<input type="checkbox" class="" name="ExtraVanilla" value="ExtraVanilla">
+		<label class="cookieLabel">Vanilla</label><br>
+		<input type="checkbox" class="" name="ExtraBlueberry" value="ExtraBlueberry">
+		<label class="cookieLabel">Strawberry</label><br>
+		<input type="checkbox" class="" name="ExtraStrawberry" value="ExtraStrawberry">
+		<label class="cookieLabel">Blueberry</label><br>
+		
+        <button class="containerLoginButton" type="submit">Send order</button><br>
+        
+      </form>
+    </div>
+  </div>
+   <% } %>
+</body>
+
+<script src="js/js.js"></script>
