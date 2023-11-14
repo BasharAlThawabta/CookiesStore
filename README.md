@@ -9,7 +9,7 @@
 
 ### List of Packages 📦 : ⚪ express, ⚪ http, ⚪ bodyParser, ⚪ mysql2, ⚪ express-session,
 
-### ⚪ path, ⚪ sweetalert2, ⚪ WebHook, ⚪ os, ⚪ dns, ⚪ fs, ⚪ multer, ⚪ chokidar, ⚪ events
+### ⚪ path, ⚪ sweetalert2, ⚪ WebHook, ⚪ os, ⚪ dns, ⚪ fs, ⚪ multer, ⚪ chokidar, ⚪ events , ⚪ EJS
 
 <hr>
 
